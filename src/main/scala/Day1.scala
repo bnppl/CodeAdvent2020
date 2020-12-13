@@ -4,9 +4,9 @@ object Day1 {
 
   import AdventInputParser._
 
-  def answer1(url: URL) = addTwoNumbers(stringToInts(readURLToString(url)))
+  def answer1(url: URL) = addTwoNumbers(stringToInts(readFile(url)))
 
-  def answer2(url: URL) = addThreeNumbers(stringToInts(readURLToString(url)))
+  def answer2(url: URL) = addThreeNumbers(stringToInts(readFile(url)))
 
   def addTwoNumbers(numbers: List[Int]) =
 

@@ -17,7 +17,8 @@ object Day2 {
   }
 
   def parsePasswordList(list: List[String]): List[(PasswordRuleInput, String)] = list.map {
-    case passwordRegEx(min, max, char, password) => Try((PasswordRuleInput(char.charAt(0), min.toInt, max.toInt), password)).toOption
+    case passwordRegEx(min, max, char, password) =>
+      Try((PasswordRuleInput(char.charAt(0), min.toInt, max.toInt), password)).toOption
     case _ => None
   }.collect {
     case Some(s) => s

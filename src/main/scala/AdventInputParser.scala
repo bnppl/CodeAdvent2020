@@ -3,9 +3,9 @@ import scala.util.{Success, Try}
 
 object AdventInputParser {
 
-  def readInts(url: URL) = stringToInts(readURLToString(url))
+  def readInts(url: URL) = stringToInts(readFile(url))
 
-  def readStrings(url: URL) = stringToLines(readURLToString(url))
+  def readStrings(url: URL) = stringToLines(readFile(url))
 
   def stringToInts(numbers: String): List[Int] = numbers
     .split("\n")
@@ -17,7 +17,7 @@ object AdventInputParser {
       case Success(i) => i
     }
 
-  def readURLToString(url: URL): String = {
+  def readFile(url: URL): String = {
     val source = scala.io.Source.fromURL(url)
     val res = source.mkString
     source.close()
