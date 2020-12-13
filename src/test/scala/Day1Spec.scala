@@ -15,7 +15,7 @@ class Day1Spec extends Specification {
     result === expected
 
   }
-
+  
   "Given a list of numbers it will add them together 3 times, and return the product of any that add up to 2020" >> {
 
     val numbers = List(2018, 1, 1)
@@ -27,10 +27,21 @@ class Day1Spec extends Specification {
     result === expected
 
   }
+  "Given a list of numbers it will add them together 3 times, and return the product of any that add up to 2020" >> {
+
+    val numbers = List(1010, 4)
+
+    val result = Day1.addThreeNumbers(numbers)
+
+    val expected = Set()
+
+    result === expected
+
+  }
 
   "Given a url it should read the contents of a textfile into a string" >> {
 
-    val inputUrl: URL = getClass.getResource("input.txt")
+    val inputUrl: URL = getClass.getResource("inputDay1.txt")
 
     val answer = Day1.answer1(inputUrl)
     
@@ -41,7 +52,7 @@ class Day1Spec extends Specification {
 
   "Given a url it should read the contents of a textfile into a string" >> {
 
-    val inputUrl: URL = getClass.getResource("input.txt")
+    val inputUrl: URL = getClass.getResource("inputDay1.txt")
 
     val answer = Day1.answer2(inputUrl)
 

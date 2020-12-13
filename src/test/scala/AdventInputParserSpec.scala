@@ -1,6 +1,6 @@
 import org.specs2.mutable.Specification
 
-class AdventNumberInputParserSpec extends Specification{
+class AdventInputParserSpec extends Specification{
   "Given a list of numbers separated by new lines, I should get back a List()" >> {
 
     val numbers =
@@ -10,7 +10,7 @@ class AdventNumberInputParserSpec extends Specification{
 
     val expected = List(1593, 1638, 1396)
 
-    val result = AdventNumberInputParser.stringToInts(numbers)
+    val result = AdventInputParser.stringToInts(numbers)
 
     result === expected
   }
@@ -26,9 +26,10 @@ class AdventNumberInputParserSpec extends Specification{
 
     val expected = List(1593, 1638, 1396)
 
-    val result = AdventNumberInputParser.stringToInts(numbers)
+    val result = AdventInputParser.stringToInts(numbers)
 
     result === expected
   }
+
 
 }

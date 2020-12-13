@@ -1,12 +1,18 @@
 import java.net.URL
 import scala.util.{Success, Try}
 
-object AdventNumberInputParser {
+object AdventInputParser {
+
+  def readInts(url: URL) = stringToInts(readURLToString(url))
+
+  def readStrings(url: URL) = stringToLines(readURLToString(url))
 
   def stringToInts(numbers: String): List[Int] = numbers
     .split("\n")
     .toList
-    .map(i => Try{i.toInt})
+    .map(i => Try {
+      i.toInt
+    })
     .collect {
       case Success(i) => i
     }
@@ -17,5 +23,7 @@ object AdventNumberInputParser {
     source.close()
     res
   }
+
+  def stringToLines(file: String): List[String] = file.split("\n").toList
 
 }

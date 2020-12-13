@@ -2,7 +2,7 @@ import java.net.URL
 
 object Day1 {
 
-  import AdventNumberInputParser._
+  import AdventInputParser._
 
   def answer1(url: URL) = addTwoNumbers(stringToInts(readURLToString(url)))
 
