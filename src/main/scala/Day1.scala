@@ -1,40 +1,36 @@
 import java.net.URL
-import scala.util.{Success, Try}
 
 object Day1 {
 
+  import AdventNumberInputParser._
 
-  def addNumbers(numbers: List[Int]) = {
-    val lowToHigh = numbers.sorted
-    val highToLow = lowToHigh.reverse
+  def answer1(url: URL) = addTwoNumbers(stringToInts(readURLToString(url)))
+
+  def answer2(url: URL) = addThreeNumbers(stringToInts(readURLToString(url)))
+
+  def addTwoNumbers(numbers: List[Int]) =
 
     (for {
-      low <- lowToHigh
-      high <- highToLow
+      one <- numbers
+      two <- numbers
     } yield {
-      (low, high, low + high)
+      (one, two, one + two)
     }).collect {
       case (a, b, total) if total == 2020 => a * b
     }.toSet
 
+  def addThreeNumbers(numbers: List[Int]) = {
+
+    (for {
+      one <- numbers
+      two <- numbers
+      three <- numbers
+    } yield {
+      (one, two, three, one + two + three)
+    }).collect {
+      case (a, b, c, total) if total == 2020 => a * b * c
+    }.toSet
+
   }
-
-  def readToList(numbers: String): List[Int] = numbers
-    .split("\n")
-    .toList
-    .map(i => Try{i.toInt})
-    .collect {
-      case Success(i) => i
-    }
-
-
-  def readURLToString(url: URL): String = {
-    val source = scala.io.Source.fromURL(url)
-    val res = source.mkString
-    source.close()
-    res
-  }
-
-  def answer(url: URL) = addNumbers(readToList(readURLToString(url)))
 
 }
